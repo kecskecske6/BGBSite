@@ -1,0 +1,26 @@
+<div class="col">
+    <div id="loginFormContainer" class="d-flex justify-content-center mx-auto row">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()"
+            class="d-flex row justify-content-center align-items-center" method="post">
+            <div id="loginFormBody">
+                <div class="mb-4 mt-4 col-md-12">
+                    <label for="loginInputEmail" class="form-label">Username</label>
+                    <div class="input-group">
+                        <input formControlName="email" id="loginInputEmail" autocomplete="off" type="string"
+                            class="form-control" name="email" placeholder="Username">
+                    </div>
+                </div>
+                <div class="mb-4 mt-4 col-md-12">
+                    <label for="loginInputPassword" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input formControlName="password" id="loginInputPassword" autocomplete="off" type="password"
+                            class="form-control" name="password" placeholder="Password">
+                    </div>
+                </div>
+            </div>
+            <div id="loginFormFooter" class="row">
+                <button type="submit" class="btn btn-primary col-8 mx-auto">Log in</button>
+            </div>
+        </form>
+    </div>
+</div>

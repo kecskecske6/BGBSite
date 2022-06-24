@@ -1,0 +1,18 @@
+<div class="container">
+    <div *ngFor="let command of commands" class="accordion" id="accordionExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + command.name">
+                    {{command.name}}
+                </button>
+            </h2>
+            <div [id]="'collapse' + command.name" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Category: {{command.category}} <br>
+                    Description: {{command.description}} <br>
+                    Usage: <code>{{command.usage}}</code> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

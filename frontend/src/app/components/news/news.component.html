@@ -1,0 +1,16 @@
+<div class="container">
+    <div *ngFor="let oneNews of news">
+        <img [src]="oneNews.imageURL" alt="image">
+        <a [routerLink]="'/news/' + oneNews._id">
+            <h1>{{oneNews.title}}</h1>
+        </a>
+        <p>{{oneNews.heading}}</p>
+        <a [routerLink]="'/news/' + oneNews._id">Read more >></a>
+        <p>By: {{oneNews.author}} at {{oneNews.publishedAt | date: 'yyyy.MM.dd hh:mm'}}</p>
+        <hr>
+    </div>
+</div>
+
+<div *ngIf="userService.userName">
+    <button class="new" routerLink="/news/new">+</button>
+</div>

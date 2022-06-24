@@ -1,0 +1,11 @@
+<form>
+    <label for="title">Title</label>
+    <input [(ngModel)]="news.title" type="text" name="title" id="title">
+    <label for="heading">Heading</label>
+    <input [(ngModel)]="news.heading" type="text" name="heading" id="heading">
+    <label for="image">Image</label>
+    <input [(ngModel)]="news.imageURL" type="text" name="image" id="image">
+    <label for="content">Content</label>
+    <textarea [(ngModel)]="news.content" name="content" id="content" cols="30" rows="10"></textarea>
+    <button class="btn btn-success" (click)="addNews()">Add news</button>
+</form>
