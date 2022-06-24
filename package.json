@@ -4,7 +4,8 @@
   "description": "The backend for BrickGamerBot's website",
   "main": "src/index.ts",
   "scripts": {
-    "start": "nodemon ./src/index.ts"
+    "start": "nodemon ./src/index.ts",
+    "heroku-postbuild": "cd frontend && npm i && npm run build"
   },
   "repository": {
     "type": "git",

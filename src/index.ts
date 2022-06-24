@@ -4,6 +4,7 @@ import { Db, MongoClient } from 'mongodb';
 import bodyParser from 'body-parser';
 import routes from './routes';
 import 'dotenv/config';
+import path from 'path';
 
 const app = express();
 
@@ -24,7 +25,13 @@ client.connect((error, clientdb) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, '../frontend/dist/bgbsite-frontend')));
+
 app.use('/api', routes);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/../frontend/dist/bgbsite-frontend/index.html'));
+});
 
 const database: Db = new Db(client, 'website-data');
 
