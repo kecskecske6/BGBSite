@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendURL: 'https://bgbsite-backend.herokuapp.com/api'
+  backendURL: 'https://bgbsite.herokuapp.com/api'
 };
 
 /*
