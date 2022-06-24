@@ -1,4 +1,6 @@
 export interface User {
-    username: string;
-    password: string;
+    userId: string;
+    tag: string;
+    avatar: string | null;
+    guilds: any[] | undefined;
 }

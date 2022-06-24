@@ -1,25 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { UserModel } from '../classes/user-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  userName!: string | null;
+  tag: string = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  logOutUser() {
-    localStorage.clear();
-    this.userName = null;
+  getUser(): Observable<UserModel | object> {
+    return this.http.get<UserModel | object>(`${environment.backendURL}/auth`, { withCredentials: true });
   }
 
-  setUser(name: string) {
-    this.userName = name;
-  }
-
-  getName() {
-    return localStorage.getItem('name');
+  logOut(): Observable<any> {
+    return this.http.post<any>(`${environment.backendURL}/auth/logout`, {}, { withCredentials: true });
   }
 
 }

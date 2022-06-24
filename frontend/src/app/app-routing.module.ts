@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommandsComponent } from './components/commands/commands.component';
-import { InviteComponent } from './components/invite/invite.component';
-import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewNewsComponent } from './components/new-news/new-news.component';
 import { NewsComponent } from './components/news/news.component';
@@ -21,8 +20,7 @@ const routes: Routes = [
   { path: 'wiki', component: WikiComponent },
   { path: 'wiki/:title', component: WikiPageComponent },
   { path: 'wiki/search/:title', component: WikiSearchComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'invite', component: InviteComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

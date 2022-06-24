@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsModel } from 'src/app/classes/news-model';
+import { UserModel } from 'src/app/classes/user-model';
 import { NewsService } from 'src/app/services/news.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,10 +13,23 @@ export class NewsComponent implements OnInit {
 
   news: NewsModel[] = [];
 
-  constructor(private newsService: NewsService, public userService: UserService) { }
+  userId: string = '';
+
+  constructor(private newsService: NewsService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.getNews();
+  }
+
+  getUser(): void {
+    this.userService.getUser().subscribe({
+      next: result => {
+        if (result.hasOwnProperty('userId')) {
+          this.userId = (result as UserModel).userId;
+        }
+      },
+      error: err => console.log(err)
+    });
   }
 
   getNews(): void {

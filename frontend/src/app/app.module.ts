@@ -13,8 +13,8 @@ import { CommandsComponent } from './components/commands/commands.component';
 import { WikiComponent } from './components/wiki/wiki.component';
 import { WikiPageComponent } from './components/wiki-page/wiki-page.component';
 import { WikiSearchComponent } from './components/wiki-search/wiki-search.component';
-import { LoginComponent } from './components/login/login.component';
-import { InviteComponent } from './components/invite/invite.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -27,8 +27,7 @@ import { InviteComponent } from './components/invite/invite.component';
     WikiComponent,
     WikiPageComponent,
     WikiSearchComponent,
-    LoginComponent,
-    InviteComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +36,7 @@ import { InviteComponent } from './components/invite/invite.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
