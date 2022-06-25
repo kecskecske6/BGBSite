@@ -35,9 +35,7 @@ app.set("trust proxy", 1);
 app.use(session({
     secret: process.env['EXPRESS_SECRET'] == undefined ? '' : process.env['EXPRESS_SECRET'],
     cookie: {
-        maxAge: 60000 * 60 * 24,
-        sameSite: 'none',
-        secure: true
+        maxAge: 60000 * 60 * 24
     },
     name: 'user',
     resave: false,

@@ -9,12 +9,16 @@ import { UserModel } from '../classes/user-model';
 })
 export class UserService {
 
-  tag: string = '';
+  user: UserModel | null = null;
 
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<UserModel | object> {
     return this.http.get<UserModel | object>(`${environment.backendURL}/auth`, { withCredentials: true });
+  }
+
+  setUser(user: UserModel): void {
+    this.user = user;
   }
 
   logOut(): Observable<any> {

@@ -15,11 +15,11 @@ export class AppComponent {
 
   pageTitle: string = '';
 
-  tag: string = localStorage.getItem('tag') ?? '';
+  user: UserModel | null = null;
 
   constructor(private router: Router, private userService: UserService, private cookieService: CookieService) {
     if (!this.cookieService.check('user')) this.logout('con');
-    if (!localStorage.getItem('tag')) this.getUser();
+    if (!this.user) this.getUser();
   }
 
   search(): void {
@@ -30,11 +30,12 @@ export class AppComponent {
     this.userService.getUser().subscribe({
       next: result => {
         if (result.hasOwnProperty('userId')) {
-          this.tag = (result as UserModel).tag;
-          localStorage.setItem('tag', (result as UserModel).tag);
+          this.user = result as UserModel;
+          this.userService.setUser(this.user);
         }
+        else console.log(result);
       },
-      error: err => { }
+      error: err => console.log(err)
     });
   }
 
@@ -43,7 +44,6 @@ export class AppComponent {
   }
 
   logout(sender: string): void {
-    localStorage.clear();
     this.userService.logOut().subscribe({
       next: result => console.log(result),
       error: err => console.log(err)
