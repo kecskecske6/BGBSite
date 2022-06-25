@@ -18,7 +18,7 @@ export class AppComponent {
   user: UserModel | null = null;
 
   constructor(private router: Router, private userService: UserService, private cookieService: CookieService) {
-    if (!this.cookieService.check('user')) this.logout('con');
+    if (!this.cookieService.check('connect.sid')) this.logout('con');
     if (!this.user) this.getUser();
   }
 
@@ -48,7 +48,7 @@ export class AppComponent {
       next: result => console.log(result),
       error: err => console.log(err)
     });
-    this.cookieService.delete('user');
+    this.cookieService.delete('connect.sid');
     if (sender == 'button') location.reload();
   }
 
