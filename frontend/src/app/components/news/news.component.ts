@@ -19,6 +19,7 @@ export class NewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNews();
+    this.getUser();
   }
 
   getUser(): void {

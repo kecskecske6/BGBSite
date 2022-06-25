@@ -9,12 +9,13 @@ import { OneNewsComponent } from './components/one-news/one-news.component';
 import { WikiPageComponent } from './components/wiki-page/wiki-page.component';
 import { WikiSearchComponent } from './components/wiki-search/wiki-search.component';
 import { WikiComponent } from './components/wiki/wiki.component';
+import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
   { path: 'news', component: NewsComponent },
-  { path: 'news/new', component: NewNewsComponent, canActivate: [AuthGuard] },
+  { path: 'news/new', component: NewNewsComponent, canActivate: [AdminGuard] },
   { path: 'news/:id', component: OneNewsComponent },
   { path: 'commands', component: CommandsComponent },
   { path: 'wiki', component: WikiComponent },
