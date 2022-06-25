@@ -6,7 +6,7 @@ const router = express();
 router.get('/discord', passport.authenticate('discord'));
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
-    res.redirect(process.env['DASHBOARD'] == undefined ? '' : process.env['DASHBOARD']);
+    res.redirect(process.env['FRONTEND'] == undefined ? '' : process.env['FRONTEND']);
 });
 
 router.get('/', (req, res) => {

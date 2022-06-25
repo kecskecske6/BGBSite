@@ -41,9 +41,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env['MONGO_URL'] == undefined ? '' : process.env['MONGO_URL'],
-        autoRemove: 'interval',
-        autoRemoveInterval: 1
+        mongoUrl: process.env['MONGO_URL'] == undefined ? '' : process.env['MONGO_URL']
     })
 }));
 
