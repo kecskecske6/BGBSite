@@ -21,9 +21,9 @@
               <input name="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="pageTitle">
               <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
           </form>
-          <button class="btn btn-success" (click)="login()" *ngIf="!tag">Login</button>
-          <div *ngIf="tag">
-              <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button">{{tag}}</a>
+          <button class="btn btn-success" (click)="login()" *ngIf="!user">Login</button>
+          <div *ngIf="user">
+              <a class="dropdown-toggle" data-bs-toggle="dropdown" role="button">{{user?.tag}}</a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                   <li class="dropdown-item" (click)="logout('button')">Logout</li>
               </ul>
