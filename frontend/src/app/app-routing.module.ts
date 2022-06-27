@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommandsComponent } from './components/commands/commands.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GuildDashboardComponent } from './components/guild-dashboard/guild-dashboard.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewNewsComponent } from './components/new-news/new-news.component';
 import { NewsComponent } from './components/news/news.component';
@@ -11,6 +12,7 @@ import { WikiSearchComponent } from './components/wiki-search/wiki-search.compon
 import { WikiComponent } from './components/wiki/wiki.component';
 import { AdminGuard } from './guards/admin.guard';
 import { AuthGuard } from './guards/auth.guard';
+import { GuildGuard } from './guards/guild.guard';
 
 const routes: Routes = [
   { path: '', component: MainPageComponent },
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: 'wiki', component: WikiComponent },
   { path: 'wiki/:title', component: WikiPageComponent },
   { path: 'wiki/search/:title', component: WikiSearchComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard/:id', component: GuildDashboardComponent, canActivate: [GuildGuard] }
 ];
 
 @NgModule({

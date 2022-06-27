@@ -11,8 +11,10 @@ import { UserService } from 'src/app/services/user.service';
 export class DashboardComponent implements OnInit {
 
   guilds: any[] | undefined = undefined;
-  
+
   botGuilds: unknown[] = [];
+
+  botGuildIds: string[] = [];
 
   constructor(private userService: UserService, private discordService: DiscordService) { }
 
@@ -30,7 +32,10 @@ export class DashboardComponent implements OnInit {
 
   getBotGuilds(): void {
     this.discordService.getBotGuilds().subscribe({
-      next: result => this.botGuilds = result,
+      next: result => {
+        this.botGuilds = result;
+        result.forEach(g => this.botGuildIds.push(g.id));
+      },
       error: err => console.log(err)
     });
   }

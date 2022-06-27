@@ -15,6 +15,7 @@ import { WikiPageComponent } from './components/wiki-page/wiki-page.component';
 import { WikiSearchComponent } from './components/wiki-search/wiki-search.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CookieService } from 'ngx-cookie-service';
+import { GuildDashboardComponent } from './components/guild-dashboard/guild-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CookieService } from 'ngx-cookie-service';
     WikiComponent,
     WikiPageComponent,
     WikiSearchComponent,
-    DashboardComponent
+    DashboardComponent,
+    GuildDashboardComponent
   ],
   imports: [
     BrowserModule,
