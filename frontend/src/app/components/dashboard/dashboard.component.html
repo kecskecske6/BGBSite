@@ -1,7 +1,7 @@
 <div *ngFor="let guild of guilds">
     <h2>{{guild.name}}</h2>
     <div *ngIf="botGuildIds.includes(guild.id)">
-        <div [routerLink]="'/dashboard/' + guild.id">Manage</div>
+        <a [routerLink]="'/dashboard/' + guild.id">Manage</a>
     </div>
     <div *ngIf="!botGuildIds.includes(guild.id)">
         <a [href]="'https://discord.com/api/oauth2/authorize?client_id=826348423082803230&permissions=268823616&scope=bot%20applications.commands&guild_id=' + guild.id">Invite</a>

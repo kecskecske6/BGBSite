@@ -18,7 +18,7 @@ export class GuildGuard implements CanActivate {
       this.userService.getUser().subscribe({
         next: result => {
           if (result.hasOwnProperty('userId')) {
-            let guild = ((result as UserModel).guilds == undefined ? [] : ((result as UserModel).guilds as unknown) as any[]).find(g => g.id == this.router.url.substring(this.router.url.lastIndexOf('/') + 1));
+            let guild = ((result as UserModel).guilds == undefined ? [] : ((result as UserModel).guilds as unknown) as any[]).find(g => g.id == state.url.substring(state.url.lastIndexOf('/') + 1));
             if (!guild) {
               this.router.navigate(['/dashboard']);
               obs.next(false);
