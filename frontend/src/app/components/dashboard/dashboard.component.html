@@ -1,1 +1,9 @@
-<img src="../../../assets/logo.png" alt="">
+<div *ngFor="let guild of guilds">
+    <h2>{{guild.name}}</h2>
+    <div *ngIf="botGuilds.includes(guild)">
+        Manage
+    </div>
+    <div *ngIf="!botGuilds.includes(guild)">
+        <a [href]="'https://discord.com/api/oauth2/authorize?client_id=826348423082803230&permissions=268823616&scope=bot%20applications.commands&guild_id=' + guild.id">Invite</a>
+    </div>
+</div>

@@ -27,7 +27,7 @@ passport.use(new DiscordStrategy({
     const { id, username, discriminator, avatar, guilds } = profile;
     let user = await database.collection<User>('users').findOne({ userId: id });
     if (!user) await database.collection<User>('users').insertOne({ avatar: avatar, guilds: guilds, tag: `${username}#${discriminator}`, userId: id });
-    else await database.collection<User>('users').updateOne({ userId: id }, { $set: { avatar: avatar, guilds: guilds, tag: `${username}#${discriminator}` } });
+    else await database.collection<User>('users').updateOne({ userId: id }, { $set: { avatar: avatar, guilds: guilds?.filter(g => (g.permissions & 0x20) == 0x20), tag: `${username}#${discriminator}` } });
     user = await database.collection<User>('users').findOne({ userId: id });
     return done(null, user ?? undefined);
 }));
