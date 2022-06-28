@@ -1,14 +1,20 @@
-<div class="card" style="width: 18rem;" *ngFor="let guild of guilds">
-    <div *ngIf="botGuildIds.includes(guild.id)" [routerLink]="'/dashboard/' + guild.id">
-        <img [src]="'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png'" [alt]="guild.name">
-        <div class="card-body">
-            <h5 class="card-title">{{guild.name}}</h5>
+<div class="container-fluid">
+    <div class="row">
+        <div class="card col-3" *ngFor="let guild of guilds">
+            <a *ngIf="botGuildIds.includes(guild.id)" [routerLink]="'/dashboard/' + guild.id">
+                <img *ngIf="guild.icon" [src]="'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png'" [alt]="guild.name">
+                <div *ngIf="!guild.icon">{{guild.name}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{guild.name}}</h5>
+                </div>
+            </a>
+            <a id="nobot" *ngIf="!botGuildIds.includes(guild.id)" [href]="'https://discord.com/api/oauth2/authorize?client_id=826348423082803230&permissions=268823616&scope=bot%20applications.commands&guild_id=' + guild.id">
+                <img *ngIf="guild.icon" [src]="'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png'" [alt]="guild.name">
+                <div *ngIf="!guild.icon">{{guild.name}}</div>
+                <div class="card-body">
+                    <h5 class="card-title">{{guild.name}}</h5>
+                </div>
+            </a>
         </div>
     </div>
-    <a *ngIf="!botGuildIds.includes(guild.id)" [href]="'https://discord.com/api/oauth2/authorize?client_id=826348423082803230&permissions=268823616&scope=bot%20applications.commands&guild_id=' + guild.id">
-        <img [src]="'https://cdn.discordapp.com/icons/' + guild.id + '/' + guild.icon + '.png'" [alt]="guild.name">
-        <div class="card-body">
-            <h5 class="card-title">{{guild.name}}</h5>
-        </div>
-    </a>
 </div>
