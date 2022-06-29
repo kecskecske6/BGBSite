@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendURL: 'https://bgbsite.herokuapp.com/api'
+  backendURL: 'http://localhost:8080/api'
 };

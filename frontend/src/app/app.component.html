@@ -16,6 +16,9 @@
               <li class="nav-item">
                   <a class="nav-link" routerLink="/wiki">Wiki</a>
               </li>
+              <li *ngIf="user" class="nav-item">
+                <a routerLink="/dashboard" class="nav-link">Dashboard</a>
+              </li>
           </ul>
           <form class="d-flex" id="search">
               <input name="query" class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="pageTitle">
