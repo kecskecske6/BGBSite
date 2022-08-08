@@ -7,6 +7,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewNewsComponent } from './components/new-news/new-news.component';
 import { NewsComponent } from './components/news/news.component';
 import { OneNewsComponent } from './components/one-news/one-news.component';
+import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
 import { WikiPageComponent } from './components/wiki-page/wiki-page.component';
 import { WikiSearchComponent } from './components/wiki-search/wiki-search.component';
 import { WikiComponent } from './components/wiki/wiki.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'wiki/:title', component: WikiPageComponent },
   { path: 'wiki/search/:title', component: WikiSearchComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard/:id', component: GuildDashboardComponent, canActivate: [GuildGuard] }
+  { path: 'dashboard/:id', component: GuildDashboardComponent, canActivate: [GuildGuard] },
+  { path: 'tos', component: TermsOfServiceComponent },
+  { path: 'pp', component: PrivacyPolicyComponent }
 ];
 
 @NgModule({
