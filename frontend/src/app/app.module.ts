@@ -18,6 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { GuildDashboardComponent } from './components/guild-dashboard/guild-dashboard.component';
 import { TermsOfServiceComponent } from './components/terms-of-service/terms-of-service.component';
 import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-policy.component';
+import { ImageComponent } from './components/image/image.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PrivacyPolicyComponent } from './components/privacy-policy/privacy-poli
     DashboardComponent,
     GuildDashboardComponent,
     TermsOfServiceComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,
