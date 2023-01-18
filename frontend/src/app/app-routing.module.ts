@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommandsComponent } from './components/commands/commands.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { GuildDashboardComponent } from './components/guild-dashboard/guild-dashboard.component';
+import { ImageComponent } from './components/image/image.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { NewNewsComponent } from './components/new-news/new-news.component';
 import { NewsComponent } from './components/news/news.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard/:id', component: GuildDashboardComponent, canActivate: [GuildGuard] },
   { path: 'tos', component: TermsOfServiceComponent },
-  { path: 'pp', component: PrivacyPolicyComponent }
+  { path: 'pp', component: PrivacyPolicyComponent },
+  { path: 'image', component: ImageComponent }
 ];
 
 @NgModule({
